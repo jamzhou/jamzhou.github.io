@@ -1,0 +1,73 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<h1 class="text-center">Players</h1>
+	<form class="form-horizontal">
+		<div class="form-group>
+			<div class="col-sm-10">
+				<label class="col-sm-4"><input type="checkbox" value="AXXXX" onclick="updateList()">AXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="BXXXX" onclick="updateList()">BXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="CXXXX" onclick="updateList()">CXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="DXXXX" onclick="updateList()">DXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="EXXXX" onclick="updateList()">EXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="FXXXX" onclick="updateList()">FXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="GXXXX" onclick="updateList()">GXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="HXXXX" onclick="updateList()">HXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="IXXXX" onclick="updateList()">IXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="JXXXX" onclick="updateList()">JXXXX</label>
+				<label class="col-sm-4"><input type="checkbox" value="KXXXX" onclick="updateList()">KXXXX</label>
+			</div>
+		</div>
+	</form>
+	<p class="lead text-center"></p>
+	<div class="text-center"><button type="button" class="btn btn-success btn-lg" onclick="split()">分组</button></div>
+	<h4 id="result"></h4>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	var list = [];
+
+	function updateList() {
+		list = [];
+		$("input[type='checkbox']:checked").each(function(index, item){
+			list.push($(this).val());
+		});
+		$(".lead").html("总共<strong>" + list.length + "</strong>人");
+	}
+
+	function split() {
+		var len = list.length;
+		var tmpList = list.slice(0);
+		var groups = [];
+		var group = [];
+		for (var i=0; i<len;i++){
+			var r = Math.floor((Math.random() * tmpList.length));
+			var player = tmpList[r];
+			tmpList.splice(r, 1);
+			group.push(player);
+			if ((i + 1) % 4 == 0) {
+				groups.push(group);
+				group = [];
+			}
+		}
+		if (group.length > 0) {
+			groups.push(group);
+		}
+		
+		var result="";
+		for (var i=0; i<groups.length;i++) {
+			result = result + (i + 1) + "组:";
+			var temp = groups[i];
+			for (var j=0; j<groups[i].length;j++) {
+				result = result + groups[i][j] + " | ";
+			}
+			result = result + "</br></br>"
+		}
+		$("#result").html(result);
+	}
+</script>
+<body>
+</html>
