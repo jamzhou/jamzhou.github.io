@@ -1,0 +1,123 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<h1 class="text-center">Players</h1>
+	<form class="form-horizontal">
+		<div class="form-group>
+			<div class="col-sm-12">
+				<label class="col-sm-3"><input type="checkbox" value="1阿木" onclick="updateList()">阿木</label>
+				<label class="col-sm-3"><input type="checkbox" value="1俊朗" onclick="updateList()">俊朗</label>
+				<label class="col-sm-2"><input type="checkbox" value="1肥豪" onclick="updateList()">肥豪</label>
+				<label class="col-sm-2"><input type="checkbox" value="1头哥" onclick="updateList()">头哥</label>
+				<label class="col-sm-2"><input type="checkbox" value="1周杰" onclick="updateList()">周杰</label>
+				
+				<label class="col-sm-3"><input type="checkbox" value="2旬总" onclick="updateList()">旬总</label>
+				<label class="col-sm-3"><input type="checkbox" value="2思灿" onclick="updateList()">思灿</label>
+				<label class="col-sm-2"><input type="checkbox" value="2陈总" onclick="updateList()">陈总</label>
+				<label class="col-sm-2"><input type="checkbox" value="2嘉登" onclick="updateList()">嘉登</label>
+				<label class="col-sm-2"><input type="checkbox" value="2摸鱼" onclick="updateList()">摸鱼</label>
+
+				<label class="col-sm-3"><input type="checkbox" value="3老肖" onclick="updateList()">老肖</label>
+				<label class="col-sm-3"><input type="checkbox" value="3阿胖" onclick="updateList()">阿胖</label>
+				<label class="col-sm-2"><input type="checkbox" value="3阿坤" onclick="updateList()">阿坤</label>
+				<label class="col-sm-2"><input type="checkbox" value="3锐文" onclick="updateList()">锐文</label>
+				<label class="col-sm-2"><input type="checkbox" value="3水生" onclick="updateList()">水生</label>
+				
+				<label class="col-sm-3"><input type="checkbox" value="4陈政" onclick="updateList()">陈政</label>
+				<label class="col-sm-3"><input type="checkbox" value="4钟总" onclick="updateList()">钟总</label>
+				<label class="col-sm-2"><input type="checkbox" value="4水老板" onclick="updateList()">水老板</label>
+				<label class="col-sm-2"><input type="checkbox" value="4小二" onclick="updateList()">小二</label>
+				<label class="col-sm-2"><input type="checkbox" value="4骚苏" onclick="updateList()">骚苏</label>
+				
+				<!--
+				<label class="col-sm-4"><input type="checkbox" value="阿炳" onclick="updateList()">阿炳</label>
+				<label class="col-sm-4"><input type="checkbox" value="晓杰" onclick="updateList()">晓杰</label>
+				<label class="col-sm-4"><input type="checkbox" value="iiyi小弟" onclick="updateList()">iiyi小弟</label>
+				<label class="col-sm-4"><input type="checkbox" value="伟南" onclick="updateList()">伟南</label>
+				<label class="col-sm-4"><input type="checkbox" value="骚德" onclick="updateList()">骚德</label>
+				<label class="col-sm-4"><input type="checkbox" value="金麟" onclick="updateList()">金麟</label>
+				<label class="col-sm-4"><input type="checkbox" value="伟然" onclick="updateList()">伟然</label>
+				<label class="col-sm-4"><input type="checkbox" value="丁指导" onclick="updateList()">丁指导</label>
+				<label class="col-sm-4"><input type="checkbox" value="替补2" onclick="updateList()">替补2</label>
+				<label class="col-sm-4"><input type="checkbox" value="替补3" onclick="updateList()">替补3</label>
+				<label class="col-sm-4"><input type="checkbox" value="替补4" onclick="updateList()">替补4</label>
+				<label class="col-sm-4"><input type="checkbox" value="替补5" onclick="updateList()">替补5</label>
+				-->
+			</div>
+		</div>
+	</form>
+	<p class="lead text-center"></p>
+	<div class="text-center"><button type="button" class="btn btn-success btn-lg" onclick="split()">分组</button></div>
+	<h4 id="result"></h4>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	var list = [];
+
+	function updateList() {
+		/*list = [];
+		$("input[type='checkbox']:checked").each(function(index, item){
+			list.push($(this).val());
+		});
+		$(".lead").html("总共<strong>" + list.length + "</strong>人");*/
+	}
+
+	function split() {
+		list = [];
+		$("input[type='checkbox']").each(function(index, item){
+			list.push($(this).val());
+		});
+		$(".lead").html("总共<strong>" + list.length + "</strong>人");
+
+		base = []
+		for (var i in list) {
+			var level = list[i].charAt(0);
+			if (!base[level]) {
+				base[level] = [];
+			}
+			base[level].push(list[i].substr(1));
+		}
+		console.log(base);
+
+		groupNum = 0;
+		for (var i in base) {
+			if (groupNum < base[i].length) {
+				groupNum = base[i].length;
+			}
+		}
+		console.log('组数：' + groupNum);
+
+		groups = [];
+		Array.from({length: groupNum}, (x,i) => groups.push([]));
+		console.log(groups);
+
+		for (var i in base) {
+			baseRow = base[i];
+			var tmpList = baseRow.slice(0);
+			var len = baseRow.length;
+			for (var j=0; j<len; j++){
+				var r = Math.floor((Math.random() * tmpList.length));
+				var player = tmpList[r];
+				tmpList.splice(r, 1);
+				groups[j].push(player)
+			}
+		}
+		console.log(groups)
+
+		var result="";
+		for (var i=0; i<groups.length;i++) {
+			result = result + (i + 1) + "组:";
+			var temp = groups[i];
+			for (var j=0; j<groups[i].length;j++) {
+				result = result + groups[i][j] + " | ";
+			}
+			result = result + "</br></br>"
+		}
+		$("#result").html(result);
+	}
+</script>
+<body>
+</html>
