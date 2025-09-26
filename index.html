@@ -1,3 +1,286 @@
-<html>
-<p>hello<p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jam Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="grid-overlay"></div>
+    
+    <div class="container">
+        <!-- Terminal-style navigation -->
+        <nav class="terminal-nav">
+            <ul>
+                <li><a href="#about" class="terminal-link">> 关于我</a></li>
+                <li><a href="#skills" class="terminal-link">> 技能</a></li>
+                <li><a href="#projects" class="terminal-link">> 项目</a></li>
+                <li><a href="#contact" class="terminal-link">> 联系方式</a></li>
+            </ul>
+        </nav>
+
+        <header>
+            <div class="neon-text-container">
+                <h1 class="glitch" data-text="Hello World">Hello World</h1>
+                <div class="typewriter">
+                    <p>AI 不会减少你掌握新技能所需要付出的努力，只会让你产生不必学习就已经学会的错觉。 _</p>
+                </div>
+            </div>
+            
+            <div class="matrix-rain">
+                <span>01010100 01100101 01100011 01101000 00100000 01001110 01101001 01101110 01101010 01100001</span>
+            </div>
+        </header>
+
+        <section id="about" class="section">
+            <div class="terminal-header">
+                <span class="terminal-prompt">user@localhost:~$ </span>
+                <span class="terminal-command">cat about.txt</span>
+            </div>
+            <div class="terminal-content">
+                <h2>简介 About</h2>
+                <div class="about-content">
+                    <div class="profile-card">
+                        <div class="profile-placeholder">
+                            <i class="fas fa-user-astronaut profile-icon"></i>
+                        </div>
+                        <p class="developer-title">全栈开发者 | 技术极客</p>
+                    </div>
+                    <div class="bio-text">
+                        <p>我是一名开发者，专注于构建未来感十足的应用程序。我对新技术充满好奇，并致力于将想法变为现实。</p>
+                        <p>在数字世界的边缘地带，我是代码的编织者，用算法构建雏形，用技术连接虚拟与现实。</p>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">年经验</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">个项目</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">N</span>
+                                <span class="stat-label">种技术栈</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="terminal-header">
+                <span class="terminal-prompt">user@localhost:~$ </span>
+                <span class="terminal-command">ls skills/</span>
+            </div>
+            <div class="terminal-content">
+                <h2>技能 Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>后端开发</h3>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-width="90%"></div>
+                        </div>
+                        <p>Python, Java, Node.js</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>AI</h3>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-width="85%"></div>
+                        </div>
+                        <p>OpenAI、RAG、MCP、PyTorch</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>大数据</h3>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-width="80%"></div>
+                        </div>
+                        <p>Spark, Hive, Kafka, Flink</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3>前端开发</h3>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-width="95%"></div>
+                        </div>
+                        <p>HTML5, CSS3, JavaScript, React, Vue, Angular</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="terminal-header">
+                <span class="terminal-prompt">user@localhost:~$ </span>
+                <span class="terminal-command">git log --projects</span>
+            </div>
+            <div class="terminal-content">
+                <h2>项目 Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-preview">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>某智能硬件AI</h3>
+                            <p class="project-description">服务于某智能硬件的AI助手，连接LLM，提供智能语音交互、场景识别、智能家居控制等功能。</p>
+                            <div class="project-tags">
+                                <span class="tag">LLM</span>
+                                <span class="tag">RAG</span>
+                                <span class="tag">MCP</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn-primary">查看详情</a>
+                            <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> 源码</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-preview">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-vr-cardboard"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>某推荐系统</h3>
+                            <p class="project-description">医疗健康平台大数据推荐系统，包括数据ETL、特征平台、推荐排序模型等。</p>
+                            <div class="project-tags">
+                                <span class="tag">Spark</span>
+                                <span class="tag">Hadoop</span>
+                                <span class="tag">ElasticSearch</span>
+                                <span class="tag">ClickHouse</span>
+                                <span class="tag">Wide & Deep</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn-primary">查看详情</a>
+                            <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> 源码</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-preview">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>智能分诊</h3>
+                            <p class="project-description">基于自然语言处理的医疗分诊API，通过分词、线性模型、Bert分类模型多种策略进行综合分析。</p>
+                            <div class="project-tags">
+                                <span class="tag">Bert</span>
+                                <span class="tag">Word2Vec</span>
+                                <span class="tag">NLP</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn-primary">查看详情</a>
+                            <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> 源码</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="terminal-header">
+                <span class="terminal-prompt">user@cyberworld:~$ </span>
+                <span class="terminal-command">ping -social-media</span>
+            </div>
+            <div class="terminal-content">
+                <h2>联系方式 Contact</h2>
+                <div class="contact-grid">
+                    <a href="https://github.com/jamzhou" class="contact-card" target="_blank">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>@jamzhou</p>
+                        <div class="card-footer">
+                            <span>关注我</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="" class="contact-card" target="_blank">
+                        <div class="contact-icon">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <h3>Wechat</h3>
+                        <p>@jam_zhou</p>
+                        <div class="card-footer">
+                            <span>添加我</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="https://www.threads.com/@jamzhou" class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-threads"></i>
+                        </div>
+                        <h3>Trheads</h3>
+                        <p>@jamzhou</p>
+                        <div class="card-footer">
+                            <span>关注我</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="https://twitter.com/jamzhou" class="contact-card" target="_blank">
+                        <div class="contact-icon">
+                            <i class="fab fa-x-twitter"></i>
+                        </div>
+                        <h3>Twitter</h3>
+                        <p>@jamzhou</p>
+                        <div class="card-footer">
+                            <span>关注我</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="terminal-input">
+                    <span class="terminal-prompt">user@localhost:~$ </span>
+                    <input type="text" placeholder="发送消息给我..." class="terminal-input-field">
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="glitch-inline" data-text="[DEV]">[DEV]</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">关于</a>
+                    <a href="#skills">技能</a>
+                    <a href="#projects">项目</a>
+                    <a href="#contact">联系</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Jam Lab</p>
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">系统在线</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
